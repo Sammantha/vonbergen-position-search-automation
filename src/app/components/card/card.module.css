@@ -1,0 +1,20 @@
+.card {
+    width: 100%;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 15px;
+    text-align: center;
+    overflow: visible;
+    white-space: wrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: orangered;
+    color: white;
+    text-align: center;
+}
