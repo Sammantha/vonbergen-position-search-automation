@@ -1,4 +1,6 @@
-export default [
+import { IJobListing } from './types';
+
+const mockedJobs: IJobListing[] = [
     {
         "id": 1234,
         "title": "Example A",
@@ -10,3 +12,5 @@ export default [
         "link": "Burl"
     }
 ];
+
+export default mockedJobs;
