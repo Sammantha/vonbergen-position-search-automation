@@ -1,6 +1,6 @@
 import { IUser } from './types';
 
-const users: IUser[] = [
+const mockUsers: IUser[] = [
     {
         "id": 1,
         "name": "Sam",
@@ -15,4 +15,4 @@ const users: IUser[] = [
     }
 ];
 
-export default users;
+export default mockUsers;

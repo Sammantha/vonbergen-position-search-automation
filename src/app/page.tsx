@@ -1,3 +1,4 @@
+'use client';
 import styles from "./page.module.css";
 import mockedJobs from "../../positions";
 import Card from "./components/card/card";
@@ -10,7 +11,7 @@ interface IState {
 }
 
 export default function Home() {
-  const initialJobs:IState = {listings: []}
+  const initialJobs: IState = { listings: [] }
   const [currentUser, setCurrentUser] = React.useState('');
   const [jobs, setJobs] = React.useState(initialJobs);
 
