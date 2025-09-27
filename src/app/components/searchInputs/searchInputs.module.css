@@ -1,0 +1,23 @@
+.searchInputComponent {
+    background-color: #5d5d5d;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.userSelect {
+    margin-bottom: 1em;
+}
+
+.inputSet {
+    margin-top: 1em;
+    display: flex; 
+    input {
+        margin-left: 5px;
+        line-height: 1.5em;
+        flex-grow: 1;
+        font-size: 12px;
+    }
+    input:disabled {
+        background-color: #a9a9a9;
+    }
+}

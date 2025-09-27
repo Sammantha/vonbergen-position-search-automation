@@ -2,13 +2,15 @@
     width: 100%;
     margin: 10px auto;
     padding: 10px;
-    border-radius: 15px;
+    border-radius: 7px;
     text-align: center;
     overflow: visible;
     white-space: wrap;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    background-color: #838383;
+    align-items: center;
 }
 
 .card button {

@@ -2,6 +2,7 @@ export interface IJobListing {
   id: number,
   title: string,
   link: string
+  userId: number
 }
 
 export interface IUser {
