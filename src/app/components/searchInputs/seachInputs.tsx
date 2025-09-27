@@ -5,7 +5,7 @@ import mockUsers from '../../../../users';
 import React from 'react';
 import { IUser } from '../../../../types';
 
-export default function SearchInputs(props: { callback: Function }) {
+export default function SearchInputs(props: { callback: (user: IUser) => void }) {
   const emptyInitialUsers: IUser[] = [];
   const emptyInitialUser: IUser = {
     id: -1,

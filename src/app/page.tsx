@@ -38,7 +38,7 @@ export default function Home() {
             selectedUser.id > -1 
             && jobs
             && <div className={styles.ctas}>
-              <h2>{selectedUser.name}'s Job Listings</h2>
+              <h2>{selectedUser.name}&apos;s Job Listings</h2>
               {
                 jobs?.map((listing: IJobListing) => {
                   return <Card key={listing.id} title={listing.title} link={listing.link}></Card>;
