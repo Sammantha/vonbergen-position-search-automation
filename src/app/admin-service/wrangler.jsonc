@@ -1,0 +1,13 @@
+{
+  "main": "./src/index.ts",
+  "name": "admin-service",
+  "compatibility_date": "2025-03-25",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+    "services": [{
+        "binding": "STORE",
+        "service": "db-services",
+        "entrypoint": "AdminStore"
+    }]
+}

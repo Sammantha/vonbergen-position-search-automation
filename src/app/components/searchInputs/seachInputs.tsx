@@ -1,9 +1,9 @@
 'use client'
 import styles from "./searchInputs.module.css";
 import { ChangeEvent } from 'react';
-import mockUsers from '../../../../users';
 import React from 'react';
 import { IUser } from '../../../../types';
+import mockUsers from '../../../../users';
 
 export default function SearchInputs(props: { callback: (user: IUser) => void }) {
   const emptyInitialUsers: IUser[] = [];
@@ -47,9 +47,14 @@ export default function SearchInputs(props: { callback: (user: IUser) => void })
     // TODO: debounce, join(', ') & save to DB
   }
 
-  const fetchUsers = () => {
+  const fetchUsers = async () => {
+    // `/api/` is prepended because that's a //file// Route that NextJS has permission to route to
+    // `/get-users` is used to route the request furhter, within the code
+    // setUsers(JSON.parse(await GET(new Request('/api/get-users')).then(async (response: Response) => {
+    //   return response.json();
+    // })));
     setUsers(mockUsers);
-  }
+  };
 
   const resetState = () => {
     setSelectedUser(emptyInitialUser);
@@ -79,13 +84,13 @@ export default function SearchInputs(props: { callback: (user: IUser) => void })
           <div className={styles.inputSet}>
             <label htmlFor="titleExclusions">Title Keyword Exclusions: </label>
             {/* data-ddg-inputtype="unknown" because LastPass changes the inputs and causes React warnings*/}
-            <input id="titleExclusions" disabled={!selectedUser} name="titleExclusions" type="text" value={titleExclusions} onChange={changeTitleExclusions} data-ddg-inputtype="unknown"/>
+            <input id="titleExclusions" disabled={selectedUser.id > -1} name="titleExclusions" type="text" value={titleExclusions} onChange={changeTitleExclusions} data-ddg-inputtype="unknown"/>
           </div>
           <small>Comma-space separated string</small>
           <div className={styles.inputSet}>
             <label htmlFor="contentExclusions">Listing Content Keyword Exclusions: </label>
             {/* data-ddg-inputtype="unknown" because LastPass changes the inputs and causes React warnings*/}
-            <input id="contentExclusions" disabled={!selectedUser} name="contentExclusions" type="text" value={contentExclusions} onChange={changeContentExclusions} data-ddg-inputtype="unknown"/>
+            <input id="contentExclusions" disabled={selectedUser.id > -1} name="contentExclusions" type="text" value={contentExclusions} onChange={changeContentExclusions} data-ddg-inputtype="unknown"/>
           </div>
           <small>Comma-space separated string</small>
         </div>
