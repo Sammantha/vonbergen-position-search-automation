@@ -2,28 +2,34 @@
   "name": "vonbergen-position-search-automation",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+		"deploy:db-service": "cd db-service && opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+		"deploy:frontend-service": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "deploy": "npm run deploy:db-service npm run deploy:frontend-service",
+    "dev": "npx concurrently -n src/db-service,src/app -k \"npm run dev:db-service\" \"npm run dev:frontend-service\"",
+		"dev:db-service": "npx wrangler dev -c src/db-service/wrangler.toml --port 8787 --test-scheduled",
+		"dev:frontend-service": "sleep 6 && next dev",
+		"lint": "eslint",
     "start": "next start",
-    "lint": "eslint",
-    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+    "test": "npx vitest"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.9.0",
     "cf-bindings-proxy": "^0.7.2",
     "next": "15.5.3",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "vitest": "1.4.0"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250927.0",
     "@eslint/eslintrc": "^3",
     "@types/node": "^20.19.17",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "concurrently": "8.2.2",
     "eslint": "^9",
     "eslint-config-next": "15.5.3",
     "typescript": "^5",

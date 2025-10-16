@@ -42,3 +42,6 @@ next-env.d.ts
 
 # CloudFlare
 .open-next/*
+.wrangler/*
+*/.wrangler/*
+*/*/.wrangler/*
