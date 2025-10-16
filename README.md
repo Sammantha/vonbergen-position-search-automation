@@ -40,3 +40,7 @@ Deploy using CLI, no pipeline from GitHub to CloudFlare Worers is set up.
 CloudFlare: Local development is supported for Service bindings. For each Worker, open a new terminal and use wrangler dev in the relevant directory. When running wrangler dev, service bindings will show as connected/not connected depending on whether Wrangler can find a running wrangler dev session for that Worker.
 
 Wrangler also supports running multiple Workers at once with one command. To try it out, pass multiple -c flags to Wrangler, like this: wrangler dev -c wrangler.json -c ../other-worker/wrangler.json. The first config will be treated as the primary worker, which will be exposed over HTTP as usual at http://localhost:8787. The remaining config files will be treated as secondary and will only be accessible via a service binding from the primary worker.
+
+## Architecture
+CloudFlare demo model: https://github.com/cloudflare/js-rpc-and-entrypoints-demo/tree/main
+Simplified 1-service model is used, demo model used for understanding and possibly V2 architecture.
